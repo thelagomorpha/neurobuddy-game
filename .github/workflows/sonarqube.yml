@@ -25,6 +25,9 @@ jobs:
           key: Library-SonarQube
           restore-keys: Library-
 
+      # Free disk space for large Unity Docker image
+      - uses: jlumbroso/free-disk-space@v1.3.1
+
       # Run Unity tests with coverage
       - uses: game-ci/unity-test-runner@v4
         id: unity-test
