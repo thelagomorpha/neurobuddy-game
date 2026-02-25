@@ -16,12 +16,17 @@ public class MenuNavigator : MonoBehaviour
         _sceneLoader = loader;
     }
 
+    private void Awake()
+    {
+        // Use the real Unity scene loader if none was injected
+        _sceneLoader ??= new UnitySceneLoader();
+    }
+
     /// <summary>
     /// Loads the Lobby scene. Wire this to the Start Button's OnClick event.
-    /// TODO: Implement scene loading (GREEN phase)
     /// </summary>
     public void GoToLobby()
     {
-        // Not yet implemented — tests should FAIL (RED)
+        _sceneLoader.LoadScene("Lobby");
     }
 }
