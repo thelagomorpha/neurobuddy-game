@@ -12,6 +12,9 @@ jobs:
   sonarqube:
     name: Build and Analyze
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
         with:
