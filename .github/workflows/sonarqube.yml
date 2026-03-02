@@ -60,7 +60,7 @@ jobs:
           echo "=== Full tree of coverage path ==="
           find ${{ steps.unity-test.outputs.coveragePath }} -type f || true
           echo "=== Looking for OpenCover XML files ==="
-          REPORTS=$(find . -name '*.xml' -path '*/opencov/*' -type f | tr '\n' ',' | sed 's/,$//')
+          REPORTS=$(find . -name '*.xml' -path '*opencov*' -type f | tr '\n' ',' | sed 's/,$//')
           if [ -z "$REPORTS" ]; then
             echo "No opencov reports found, trying broader search..."
             REPORTS=$(find . -name 'TestCoverageResults_*.xml' -type f | tr '\n' ',' | sed 's/,$//')
