@@ -33,6 +33,35 @@ jobs:
       # Free disk space for large Unity Docker image
       - uses: jlumbroso/free-disk-space@v1.3.1
 
+      # Setup .NET SDK (required for dotnet-sonarscanner)
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      # Setup Java (required by SonarScanner analysis engine)
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install SonarScanner for .NET
+        run: dotnet tool install --global dotnet-sonarscanner
+
+      # BEGIN: Start SonarQube analysis (before build/test)
+      - name: SonarScanner Begin
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          dotnet sonarscanner begin \
+            /k:"thelagomorpha_neurobuddy-game" \
+            /o:"thelagomorpha" \
+            /d:sonar.token="${SONAR_TOKEN}" \
+            /d:sonar.host.url="https://sonarcloud.io" \
+            /d:sonar.cs.opencover.reportsPaths="**/TestCoverageResults_*.xml" \
+            /d:sonar.exclusions="**/*.meta,**/*.asset,**/*.prefab,**/*.unity,**/*.mat,**/*.shader"
+
       # Run Unity tests with coverage
       - uses: game-ci/unity-test-runner@v4
         id: unity-test
@@ -51,33 +80,29 @@ jobs:
         run: |
           sudo chmod -R a+r ${{ steps.unity-test.outputs.coveragePath }} || true
 
-      # Debug: find and display coverage report
-      - name: Find coverage report
-        id: coverage
+      # Debug: show generated files
+      - name: Debug output
+        if: always()
         run: |
-          echo "=== Coverage output path ==="
-          echo "${{ steps.unity-test.outputs.coveragePath }}"
-          echo "=== Full tree of coverage path ==="
-          find ${{ steps.unity-test.outputs.coveragePath }} -type f || true
-          echo "=== Looking for OpenCover XML files ==="
-          REPORTS=$(find . -name '*.xml' -path '*opencov*' -type f | tr '\n' ',' | sed 's/,$//')
-          if [ -z "$REPORTS" ]; then
-            echo "No opencov reports found, trying broader search..."
-            REPORTS=$(find . -name 'TestCoverageResults_*.xml' -type f | tr '\n' ',' | sed 's/,$//')
-          fi
-          echo "Found reports: $REPORTS"
-          echo "reports=$REPORTS" >> $GITHUB_OUTPUT
+          echo "=== Coverage XML files ==="
+          find . -name 'TestCoverageResults_*.xml' -type f || true
+          echo "=== Generated .sln and .csproj files ==="
+          find . -maxdepth 2 \( -name '*.sln' -o -name '*.csproj' \) -type f || true
 
-      # SonarQube Scan
-      - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v7
+      # Build the Unity-generated solution (required for SonarScanner .NET)
+      - name: Build Solution
+        if: always()
+        run: |
+          if ls *.sln 1>/dev/null 2>&1; then
+            echo "Found .sln, attempting build..."
+            dotnet build *.sln --no-incremental 2>&1 || echo "::warning::Build had errors (expected for Unity projects without local Unity DLLs)"
+          else
+            echo "::warning::No .sln found — SonarScanner may not analyze C# code"
+          fi
+
+      # END: Finish SonarQube analysis and upload results
+      - name: SonarScanner End
+        if: always()
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.projectKey=thelagomorpha_neurobuddy-game
-            -Dsonar.organization=thelagomorpha
-            -Dsonar.sources=Assets/Scripts/
-            -Dsonar.tests=Assets/Tests/
-            -Dsonar.exclusions=**/*.meta,**/*.asset,**/*.prefab,**/*.unity,**/*.mat,**/*.shader
-            -Dsonar.cs.opencover.reportsPaths=${{ steps.coverage.outputs.reports }}
+        run: dotnet sonarscanner end /d:sonar.token="${SONAR_TOKEN}"
