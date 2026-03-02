@@ -47,13 +47,35 @@ jobs:
 
       # Fix coverage file permissions (generated as root inside Docker)
       - name: Fix coverage permissions
-        run: sudo chmod -R 755 ${{ steps.unity-test.outputs.coveragePath }}
+        if: always()
+        run: |
+          sudo chmod -R a+r ${{ steps.unity-test.outputs.coveragePath }} || true
+
+      # Debug: find and display coverage report
+      - name: Find coverage report
+        id: coverage
+        run: |
+          echo "=== Coverage output path ==="
+          echo "${{ steps.unity-test.outputs.coveragePath }}"
+          echo "=== Looking for OpenCover XML files ==="
+          REPORT=$(find ${{ steps.unity-test.outputs.coveragePath }} -name '*-opencoverage.xml' -type f | head -1)
+          if [ -z "$REPORT" ]; then
+            echo "WARNING: No OpenCover XML found! Listing all files:"
+            find ${{ steps.unity-test.outputs.coveragePath }} -type f
+            REPORT=$(find . -name '*-opencoverage.xml' -type f | head -1)
+          fi
+          echo "Found report: $REPORT"
+          echo "report=$REPORT" >> $GITHUB_OUTPUT
+          if [ -n "$REPORT" ]; then
+            echo "=== First 50 lines of report ==="
+            head -50 "$REPORT"
+          fi
 
       # SonarQube Scan
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v6
+        uses: SonarSource/sonarqube-scan-action@v7
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.cs.opencover.reportsPaths=${{ steps.unity-test.outputs.coveragePath }}/**/*-opencoverage.xml
+            -Dsonar.cs.opencover.reportsPaths=${{ steps.coverage.outputs.report }}
