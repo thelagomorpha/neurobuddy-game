@@ -58,18 +58,9 @@ jobs:
           echo "=== Coverage output path ==="
           echo "${{ steps.unity-test.outputs.coveragePath }}"
           echo "=== Looking for OpenCover XML files ==="
-          REPORT=$(find ${{ steps.unity-test.outputs.coveragePath }} -name '*-opencoverage.xml' -type f | head -1)
-          if [ -z "$REPORT" ]; then
-            echo "WARNING: No OpenCover XML found! Listing all files:"
-            find ${{ steps.unity-test.outputs.coveragePath }} -type f
-            REPORT=$(find . -name '*-opencoverage.xml' -type f | head -1)
-          fi
-          echo "Found report: $REPORT"
-          echo "report=$REPORT" >> $GITHUB_OUTPUT
-          if [ -n "$REPORT" ]; then
-            echo "=== First 50 lines of report ==="
-            head -50 "$REPORT"
-          fi
+          REPORTS=$(find ${{ steps.unity-test.outputs.coveragePath }} -name 'TestCoverageResults_*.xml' -type f | tr '\n' ',' | sed 's/,$//')
+          echo "Found reports: $REPORTS"
+          echo "reports=$REPORTS" >> $GITHUB_OUTPUT
 
       # SonarQube Scan
       - name: SonarQube Scan
@@ -78,4 +69,4 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.cs.opencover.reportsPaths=${{ steps.coverage.outputs.report }}
+            -Dsonar.cs.opencover.reportsPaths=${{ steps.coverage.outputs.reports }}
