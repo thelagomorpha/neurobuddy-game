@@ -43,7 +43,7 @@ jobs:
         with:
           projectPath: .
           githubToken: ${{ secrets.GITHUB_TOKEN }}
-          coverageOptions: 'generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;generateOpenCoverReport;assemblyFilters:+Assembly-CSharp'
+          coverageOptions: 'generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;generateOpenCoverReport;assemblyFilters:+GameScripts'
 
       # Fix coverage file permissions (generated as root inside Docker)
       - name: Fix coverage permissions
