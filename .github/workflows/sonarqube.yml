@@ -53,9 +53,10 @@ jobs:
       - name: Remove sonar-project.properties
         run: rm -f sonar-project.properties
 
-      # Generate stub .csproj for SonarScanner analysis
+      # Generate stub .csproj files for SonarScanner analysis
       # dotnet-sonarscanner requires a real .NET build between begin/end
-      - name: Generate analysis project
+      # Source and test projects are separated so SonarQube treats tests correctly
+      - name: Generate analysis projects
         run: |
           cat > SonarAnalysis.csproj << 'CSPROJ'
           <Project Sdk="Microsoft.NET.Sdk">
@@ -67,10 +68,27 @@ jobs:
               <Compile Remove="**/*.cs" />
               <Compile Include="UnityStubs.cs" />
               <Compile Include="Assets/Scripts/**/*.cs" />
-              <Compile Include="Assets/Tests/**/*.cs" />
             </ItemGroup>
           </Project>
           CSPROJ
+
+          cat > SonarAnalysis.Tests.csproj << 'TESTCSPROJ'
+          <Project Sdk="Microsoft.NET.Sdk">
+            <PropertyGroup>
+              <TargetFramework>netstandard2.1</TargetFramework>
+              <LangVersion>9.0</LangVersion>
+              <SonarQubeTestProject>true</SonarQubeTestProject>
+            </PropertyGroup>
+            <ItemGroup>
+              <ProjectReference Include="SonarAnalysis.csproj" />
+            </ItemGroup>
+            <ItemGroup>
+              <Compile Remove="**/*.cs" />
+              <Compile Include="UnityStubs.cs" />
+              <Compile Include="Assets/Tests/**/*.cs" />
+            </ItemGroup>
+          </Project>
+          TESTCSPROJ
 
           cat > UnityStubs.cs << 'STUBS'
           // Minimal Unity type stubs so the project can compile for SonarQube analysis.
@@ -118,12 +136,13 @@ jobs:
             /d:sonar.token="${SONAR_TOKEN}" \
             /d:sonar.host.url="https://sonarcloud.io" \
             /d:sonar.cs.opencover.reportsPaths="**/TestCoverageResults_*.xml" \
-            /d:sonar.exclusions="**/*.meta,**/*.asset,**/*.prefab,**/*.unity,**/*.mat,**/*.shader,UnityStubs.cs" \
-            /d:sonar.coverage.exclusions="UnityStubs.cs"
+            /d:sonar.exclusions="**/*.meta,**/*.asset,**/*.prefab,**/*.unity,**/*.mat,**/*.shader,UnityStubs.cs,CodeCoverage/**,Library/**,Temp/**,Logs/**,UserSettings/**,bin/**,obj/**" \
+            /d:sonar.coverage.exclusions="UnityStubs.cs,Assets/Tests/**" \
+            /d:sonar.cpd.exclusions="Assets/Tests/**"
 
-      # Build the stub project (required by dotnet-sonarscanner)
-      - name: Build Analysis Project
-        run: dotnet build SonarAnalysis.csproj
+      # Build the stub projects (required by dotnet-sonarscanner)
+      - name: Build Analysis Projects
+        run: dotnet build SonarAnalysis.Tests.csproj
 
       # Run Unity tests with coverage
       - uses: game-ci/unity-test-runner@v4
