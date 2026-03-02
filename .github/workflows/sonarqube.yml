@@ -65,6 +65,7 @@ jobs:
             </PropertyGroup>
             <ItemGroup>
               <Compile Remove="**/*.cs" />
+              <Compile Include="UnityStubs.cs" />
               <Compile Include="Assets/Scripts/**/*.cs" />
               <Compile Include="Assets/Tests/**/*.cs" />
             </ItemGroup>
