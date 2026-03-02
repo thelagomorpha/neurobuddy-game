@@ -125,6 +125,11 @@ jobs:
           }
           STUBS
 
+          # Create solution file referencing both projects
+          dotnet new sln -n SonarAnalysis --force
+          dotnet sln SonarAnalysis.sln add SonarAnalysis.csproj
+          dotnet sln SonarAnalysis.sln add SonarAnalysis.Tests.csproj
+
       # BEGIN: Start SonarQube analysis (before build)
       - name: SonarScanner Begin
         env:
@@ -140,9 +145,10 @@ jobs:
             /d:sonar.coverage.exclusions="UnityStubs.cs,Assets/Tests/**" \
             /d:sonar.cpd.exclusions="Assets/Tests/**"
 
-      # Build the stub projects (required by dotnet-sonarscanner)
+      # Build the solution (required by dotnet-sonarscanner)
       - name: Build Analysis Projects
-        run: dotnet build SonarAnalysis.Tests.csproj
+        run: dotnet build SonarAnalysis.sln
+
 
       # Run Unity tests with coverage
       - uses: game-ci/unity-test-runner@v4
