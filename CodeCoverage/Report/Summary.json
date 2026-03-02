@@ -1,0 +1,27 @@
+{
+  "summary": {
+    "generatedon": "2026-03-02T17:08:04Z",
+    "parser": "MultiReportParser (2x OpenCoverParser)",
+    "assemblies": 2,
+    "classes": 3,
+    "files": 3,
+    "coveredlines": 38,
+    "uncoveredlines": 6,
+    "coverablelines": 44,
+    "totallines": 124,
+    "linecoverage": 86.3,
+    "coveredbranches": 0,
+    "totalbranches": 0,
+    "coveredmethods": 10,
+    "totalmethods": 12,
+    "methodcoverage": 83.3
+ },
+  "coverage": {
+    "assemblies": [
+      { "name": "EditModeTests", "classes": 1, "coverage": 100, "coveredlines": 32, "coverablelines": 32, "totallines": 79, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 8, "totalmethods": 8, "classesinassembly": [
+        { "name": "MenuNavigatorTest", "coverage": 100, "coveredlines": 32, "coverablelines": 32, "totallines": 79, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 8, "totalmethods": 8 } ] },
+      { "name": "GameScripts", "classes": 2, "coverage": 50, "coveredlines": 6, "coverablelines": 12, "totallines": 45, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 50, "coveredmethods": 2, "totalmethods": 4, "classesinassembly": [
+        { "name": "MenuNavigator", "coverage": 66.6, "coveredlines": 6, "coverablelines": 9, "totallines": 32, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 66.6, "coveredmethods": 2, "totalmethods": 3 },
+        { "name": "UnitySceneLoader", "coverage": 0, "coveredlines": 0, "coverablelines": 3, "totallines": 13, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 1 } ] } ]
+  }
+}

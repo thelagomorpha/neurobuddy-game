@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CoverageSession xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="0.0.0.0">
+  <Summary numSequencePoints="40" visitedSequencePoints="40" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="3" numClasses="3" visitedMethods="10" numMethods="10" />
+  <Modules>
+    <Module>
+      <Summary numSequencePoints="34" visitedSequencePoints="34" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="2" numClasses="2" visitedMethods="8" numMethods="8" />
+      <ModuleTime>0001-01-01T00:00:00</ModuleTime>
+      <ModuleName>EditModeTests</ModuleName>
+      <Files>
+        <File uid="1" fullPath="S:/@BIKIN GAMEEEEE/NeuroBuddy/neurobuddy-fe/Assets/Tests/EditMode/MenuNavigatorTest.cs" />
+      </Files>
+      <Classes>
+        <Class>
+          <Summary numSequencePoints="26" visitedSequencePoints="26" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="1" numClasses="1" visitedMethods="3" numMethods="3" />
+          <FullName>MenuNavigatorTest</FullName>
+          <Methods>
+            <Method visited="true" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="100.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="8" visitedSequencePoints="8" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
+              <MetadataToken>100663297</MetadataToken>
+              <Name>System.Void MenuNavigatorTest::GoToLobby_ShouldLoadLobbyScene()</Name>
+              <FileRef uid="1" />
+              <SequencePoints>
+                <SequencePoint vc="1" uspid="47" ordinal="0" offset="0" sl="26" sc="5" el="26" ec="5" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="48" ordinal="0" offset="1" sl="28" sc="9" el="28" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="49" ordinal="0" offset="7" sl="29" sc="9" el="29" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="50" ordinal="0" offset="18" sl="30" sc="9" el="30" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="51" ordinal="0" offset="26" sl="33" sc="9" el="33" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="52" ordinal="0" offset="33" sl="36" sc="9" el="36" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="53" ordinal="0" offset="50" sl="39" sc="9" el="39" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="54" ordinal="0" offset="62" sl="40" sc="5" el="40" ec="5" bec="0" bev="0" fileid="1" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="100.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="8" visitedSequencePoints="8" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
+              <MetadataToken>100663298</MetadataToken>
+              <Name>System.Void MenuNavigatorTest::GoToLobby_ShouldCallLoadSceneExactlyOnce()</Name>
+              <FileRef uid="1" />
+              <SequencePoints>
+                <SequencePoint vc="1" uspid="55" ordinal="0" offset="0" sl="44" sc="5" el="44" ec="5" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="56" ordinal="0" offset="1" sl="46" sc="9" el="46" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="57" ordinal="0" offset="7" sl="47" sc="9" el="47" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="58" ordinal="0" offset="18" sl="48" sc="9" el="48" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="59" ordinal="0" offset="26" sl="51" sc="9" el="51" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="60" ordinal="0" offset="33" sl="54" sc="9" el="54" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="61" ordinal="0" offset="56" sl="57" sc="9" el="57" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="62" ordinal="0" offset="68" sl="58" sc="5" el="58" ec="5" bec="0" bev="0" fileid="1" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="100.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="10" visitedSequencePoints="10" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
+              <MetadataToken>100663299</MetadataToken>
+              <Name>System.Void MenuNavigatorTest::GoToLobby_CalledTwice_ShouldStillLoadLobby()</Name>
+              <FileRef uid="1" />
+              <SequencePoints>
+                <SequencePoint vc="1" uspid="63" ordinal="0" offset="0" sl="62" sc="5" el="62" ec="5" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="64" ordinal="0" offset="1" sl="64" sc="9" el="64" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="65" ordinal="0" offset="7" sl="65" sc="9" el="65" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="66" ordinal="0" offset="18" sl="66" sc="9" el="66" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="67" ordinal="0" offset="26" sl="69" sc="9" el="69" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="68" ordinal="0" offset="33" sl="70" sc="9" el="70" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="69" ordinal="0" offset="40" sl="73" sc="9" el="73" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="70" ordinal="0" offset="57" sl="74" sc="9" el="74" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="71" ordinal="0" offset="80" sl="77" sc="9" el="77" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="72" ordinal="0" offset="92" sl="78" sc="5" el="78" ec="5" bec="0" bev="0" fileid="1" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="8" visitedSequencePoints="8" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="1" numClasses="1" visitedMethods="5" numMethods="5" />
+          <FullName>MenuNavigatorTest/MockSceneLoader</FullName>
+          <Methods>
+            <Method visited="true" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="100.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="true" isSetter="false">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
+              <MetadataToken>100663303</MetadataToken>
+              <Name>System.String MenuNavigatorTest/MockSceneLoader::get_LastLoadedScene()</Name>
+              <FileRef uid="1" />
+              <SequencePoints>
+                <SequencePoint vc="2" uspid="73" ordinal="0" offset="0" sl="14" sc="41" el="14" ec="41" bec="0" bev="0" fileid="1" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="100.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="true">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
+              <MetadataToken>100663304</MetadataToken>
+              <Name>System.Void MenuNavigatorTest/MockSceneLoader::set_LastLoadedScene(System.String)</Name>
+              <FileRef uid="1" />
+              <SequencePoints>
+                <SequencePoint vc="4" uspid="74" ordinal="0" offset="0" sl="14" sc="46" el="14" ec="46" bec="0" bev="0" fileid="1" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="100.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="true" isSetter="false">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
+              <MetadataToken>100663305</MetadataToken>
+              <Name>System.Int32 MenuNavigatorTest/MockSceneLoader::get_LoadCallCount()</Name>
+              <FileRef uid="1" />
+              <SequencePoints>
+                <SequencePoint vc="6" uspid="75" ordinal="0" offset="0" sl="15" sc="36" el="15" ec="36" bec="0" bev="0" fileid="1" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="100.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="true">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
+              <MetadataToken>100663306</MetadataToken>
+              <Name>System.Void MenuNavigatorTest/MockSceneLoader::set_LoadCallCount(System.Int32)</Name>
+              <FileRef uid="1" />
+              <SequencePoints>
+                <SequencePoint vc="4" uspid="76" ordinal="0" offset="0" sl="15" sc="41" el="15" ec="41" bec="0" bev="0" fileid="1" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="100.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="4" visitedSequencePoints="4" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
+              <MetadataToken>100663307</MetadataToken>
+              <Name>System.Void MenuNavigatorTest/MockSceneLoader::LoadScene(System.String)</Name>
+              <FileRef uid="1" />
+              <SequencePoints>
+                <SequencePoint vc="4" uspid="77" ordinal="0" offset="0" sl="18" sc="9" el="18" ec="9" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="4" uspid="78" ordinal="0" offset="1" sl="19" sc="13" el="19" ec="13" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="4" uspid="79" ordinal="0" offset="9" sl="20" sc="13" el="20" ec="13" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="4" uspid="80" ordinal="0" offset="26" sl="21" sc="9" el="21" ec="9" bec="0" bev="0" fileid="1" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+      </Classes>
+    </Module>
+    <Module>
+      <Summary numSequencePoints="6" visitedSequencePoints="6" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="1" numClasses="1" visitedMethods="2" numMethods="2" />
+      <ModuleTime>0001-01-01T00:00:00</ModuleTime>
+      <ModuleName>GameScripts</ModuleName>
+      <Files>
+        <File uid="2" fullPath="S:/@BIKIN GAMEEEEE/NeuroBuddy/neurobuddy-fe/Assets/Scripts/MenuNavigator.cs" />
+        <File uid="3" fullPath="S:/@BIKIN GAMEEEEE/NeuroBuddy/neurobuddy-fe/Assets/Scripts/UnitySceneLoader.cs" />
+      </Files>
+      <Classes>
+        <Class>
+          <Summary numSequencePoints="6" visitedSequencePoints="6" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100.0" branchCoverage="0.0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="1" numClasses="1" visitedMethods="2" numMethods="2" />
+          <FullName>MenuNavigator</FullName>
+          <Methods>
+            <Method visited="true" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="100.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
+              <MetadataToken>100663298</MetadataToken>
+              <Name>System.Void MenuNavigator::SetSceneLoader(ISceneLoader)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="3" uspid="81" ordinal="0" offset="0" sl="15" sc="5" el="15" ec="5" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="82" ordinal="0" offset="1" sl="16" sc="9" el="16" ec="9" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="83" ordinal="0" offset="8" sl="17" sc="5" el="17" ec="5" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="0" nPathComplexity="0" sequenceCoverage="100.0" branchCoverage="0" crapScore="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100.0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" maxCrapScore="0" minCrapScore="0" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
+              <MetadataToken>100663300</MetadataToken>
+              <Name>System.Void MenuNavigator::GoToLobby()</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="4" uspid="87" ordinal="0" offset="0" sl="29" sc="5" el="29" ec="5" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="4" uspid="88" ordinal="0" offset="1" sl="30" sc="9" el="30" ec="9" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="4" uspid="89" ordinal="0" offset="18" sl="31" sc="5" el="31" ec="5" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints />
+            </Method>
+          </Methods>
+        </Class>
+      </Classes>
+    </Module>
+  </Modules>
+</CoverageSession>
