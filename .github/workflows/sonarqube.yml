@@ -4,9 +4,10 @@ on:
   push:
     branches:
       - main
-      - staging
   pull_request:
     types: [opened, synchronize, reopened]
+    branches:
+      - main
 
 jobs:
   sonarqube:
@@ -42,14 +43,13 @@ jobs:
         with:
           projectPath: .
           githubToken: ${{ secrets.GITHUB_TOKEN }}
-          coverageOptions: 'generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;assemblyFilters:+Assembly-CSharp'
-          customParameters: -enableCodeCoverage
+          coverageOptions: 'generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;generateOpenCoverReport;assemblyFilters:+Assembly-CSharp'
 
       # SonarQube Scan
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v5
+        uses: SonarSource/sonarqube-scan-action@v6
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.cs.opencover.reportsPaths=CodeCoverage/**/TestCoverageResults_*.xml
+            -Dsonar.cs.opencover.reportsPaths=CodeCoverage/**/*-opencoverage.xml
