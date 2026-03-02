@@ -57,8 +57,14 @@ jobs:
         run: |
           echo "=== Coverage output path ==="
           echo "${{ steps.unity-test.outputs.coveragePath }}"
+          echo "=== Full tree of coverage path ==="
+          find ${{ steps.unity-test.outputs.coveragePath }} -type f || true
           echo "=== Looking for OpenCover XML files ==="
-          REPORTS=$(find ${{ steps.unity-test.outputs.coveragePath }} -name 'TestCoverageResults_*.xml' -type f | tr '\n' ',' | sed 's/,$//')
+          REPORTS=$(find . -name '*.xml' -path '*/opencov/*' -type f | tr '\n' ',' | sed 's/,$//')
+          if [ -z "$REPORTS" ]; then
+            echo "No opencov reports found, trying broader search..."
+            REPORTS=$(find . -name 'TestCoverageResults_*.xml' -type f | tr '\n' ',' | sed 's/,$//')
+          fi
           echo "Found reports: $REPORTS"
           echo "reports=$REPORTS" >> $GITHUB_OUTPUT
 
@@ -69,4 +75,9 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
+            -Dsonar.projectKey=thelagomorpha_neurobuddy-game
+            -Dsonar.organization=thelagomorpha
+            -Dsonar.sources=Assets/Scripts/
+            -Dsonar.tests=Assets/Tests/
+            -Dsonar.exclusions=**/*.meta,**/*.asset,**/*.prefab,**/*.unity,**/*.mat,**/*.shader
             -Dsonar.cs.opencover.reportsPaths=${{ steps.coverage.outputs.reports }}
