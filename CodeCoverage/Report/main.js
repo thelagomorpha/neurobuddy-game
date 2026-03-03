@@ -224,17 +224,17 @@ var assemblies = [
   {
     "name": "EditModeTests",
     "classes": [
-      { "name": "MenuNavigatorTest", "rp": "EditModeTests_MenuNavigatorTest.html", "cl": 32, "ucl": 0, "cal": 32, "tl": 79, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [100,100], "bch": [], "hc": [{ "et": "3/2/2026 - 11:59:55 PM", "cl": 28, "ucl": 0, "cal": 28, "tl": 79, "lcq": 100, "cb": 0, "tb": 0, "bcq": 0 }, { "et": "3/3/2026 - 12:08:03 AM", "cl": 32, "ucl": 0, "cal": 32, "tl": 79, "lcq": 100, "cb": 0, "tb": 0, "bcq": 0 }] },
+      { "name": "MenuNavigatorTest", "rp": "EditModeTests_MenuNavigatorTest.html", "cl": 32, "ucl": 0, "cal": 32, "tl": 79, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [100,100], "bch": [], "hc": [{ "et": "3/2/2026 - 11:59:55 PM", "cl": 28, "ucl": 0, "cal": 28, "tl": 79, "lcq": 100, "cb": 0, "tb": 0, "bcq": 0 }, { "et": "3/3/2026 - 12:08:03 AM", "cl": 32, "ucl": 0, "cal": 32, "tl": 79, "lcq": 100, "cb": 0, "tb": 0, "bcq": 0 }, { "et": "3/3/2026 - 7:52:56 PM", "cl": 32, "ucl": 0, "cal": 32, "tl": 79, "lcq": 100, "cb": 0, "tb": 0, "bcq": 0 }] },
     ]},
   {
     "name": "GameScripts",
     "classes": [
-      { "name": "MenuNavigator", "rp": "GameScripts_MenuNavigator.html", "cl": 6, "ucl": 3, "cal": 9, "tl": 32, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [66.6,66.6], "bch": [], "hc": [{ "et": "3/2/2026 - 11:59:55 PM", "cl": 4, "ucl": 2, "cal": 6, "tl": 32, "lcq": 66.6, "cb": 0, "tb": 0, "bcq": 0 }, { "et": "3/3/2026 - 12:08:03 AM", "cl": 6, "ucl": 3, "cal": 9, "tl": 32, "lcq": 66.6, "cb": 0, "tb": 0, "bcq": 0 }] },
-      { "name": "UnitySceneLoader", "rp": "GameScripts_UnitySceneLoader.html", "cl": 0, "ucl": 3, "cal": 3, "tl": 13, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [0,0], "bch": [], "hc": [{ "et": "3/2/2026 - 11:59:55 PM", "cl": 0, "ucl": 2, "cal": 2, "tl": 13, "lcq": 0, "cb": 0, "tb": 0, "bcq": 0 }, { "et": "3/3/2026 - 12:08:03 AM", "cl": 0, "ucl": 3, "cal": 3, "tl": 13, "lcq": 0, "cb": 0, "tb": 0, "bcq": 0 }] },
+      { "name": "MenuNavigator", "rp": "GameScripts_MenuNavigator.html", "cl": 6, "ucl": 3, "cal": 9, "tl": 32, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [66.6,66.6], "bch": [], "hc": [{ "et": "3/2/2026 - 11:59:55 PM", "cl": 4, "ucl": 2, "cal": 6, "tl": 32, "lcq": 66.6, "cb": 0, "tb": 0, "bcq": 0 }, { "et": "3/3/2026 - 12:08:03 AM", "cl": 6, "ucl": 3, "cal": 9, "tl": 32, "lcq": 66.6, "cb": 0, "tb": 0, "bcq": 0 }, { "et": "3/3/2026 - 7:52:56 PM", "cl": 6, "ucl": 3, "cal": 9, "tl": 32, "lcq": 66.6, "cb": 0, "tb": 0, "bcq": 0 }] },
+      { "name": "UnitySceneLoader", "rp": "GameScripts_UnitySceneLoader.html", "cl": 0, "ucl": 3, "cal": 3, "tl": 13, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [0,0], "bch": [], "hc": [{ "et": "3/2/2026 - 11:59:55 PM", "cl": 0, "ucl": 2, "cal": 2, "tl": 13, "lcq": 0, "cb": 0, "tb": 0, "bcq": 0 }, { "et": "3/3/2026 - 12:08:03 AM", "cl": 0, "ucl": 3, "cal": 3, "tl": 13, "lcq": 0, "cb": 0, "tb": 0, "bcq": 0 }, { "et": "3/3/2026 - 7:52:56 PM", "cl": 0, "ucl": 3, "cal": 3, "tl": 13, "lcq": 0, "cb": 0, "tb": 0, "bcq": 0 }] },
     ]},
 ];
 
-var historicCoverageExecutionTimes = ["3/2/2026 - 11:59:55 PM"];
+var historicCoverageExecutionTimes = ["3/3/2026 - 12:08:03 AM", "3/2/2026 - 11:59:55 PM"];
 
 var riskHotspotMetrics = [
 ];

@@ -10,149 +10,27 @@ on:
       - main
 
 jobs:
-  sonarqube:
-    name: Build and Analyze
+  test:
+    name: Run Unity Tests
     runs-on: ubuntu-latest
     permissions:
       contents: read
       checks: write
-      pull-requests: write
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           lfs: true
 
-      - name: Cache Library
-        uses: actions/cache@v4
+      - uses: actions/cache@v4
         with:
           path: Library
-          key: Library-SonarQube
+          key: Library-Test
           restore-keys: Library-
 
-      # Free disk space for large Unity Docker image
       - uses: jlumbroso/free-disk-space@v1.3.1
 
-      # Setup .NET SDK (required for dotnet-sonarscanner)
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.0.x'
-
-      # Setup Java (required by SonarScanner analysis engine)
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      - name: Install SonarScanner for .NET
-        run: dotnet tool install --global dotnet-sonarscanner
-
-      # Remove sonar-project.properties (not compatible with dotnet-sonarscanner)
-      - name: Remove sonar-project.properties
-        run: rm -f sonar-project.properties
-
-      # Generate stub .csproj files for SonarScanner analysis
-      # dotnet-sonarscanner requires a real .NET build between begin/end
-      # Source and test projects are separated so SonarQube treats tests correctly
-      - name: Generate analysis projects
-        run: |
-          cat > SonarAnalysis.csproj << 'CSPROJ'
-          <Project Sdk="Microsoft.NET.Sdk">
-            <PropertyGroup>
-              <TargetFramework>netstandard2.1</TargetFramework>
-              <LangVersion>9.0</LangVersion>
-            </PropertyGroup>
-            <ItemGroup>
-              <Compile Remove="**/*.cs" />
-              <Compile Include="UnityStubs.cs" />
-              <Compile Include="Assets/Scripts/**/*.cs" />
-            </ItemGroup>
-          </Project>
-          CSPROJ
-
-          cat > SonarAnalysis.Tests.csproj << 'TESTCSPROJ'
-          <Project Sdk="Microsoft.NET.Sdk">
-            <PropertyGroup>
-              <TargetFramework>netstandard2.1</TargetFramework>
-              <LangVersion>9.0</LangVersion>
-              <SonarQubeTestProject>true</SonarQubeTestProject>
-            </PropertyGroup>
-            <ItemGroup>
-              <ProjectReference Include="SonarAnalysis.csproj" />
-            </ItemGroup>
-            <ItemGroup>
-              <Compile Remove="**/*.cs" />
-              <Compile Include="UnityStubs.cs" />
-              <Compile Include="Assets/Tests/**/*.cs" />
-            </ItemGroup>
-          </Project>
-          TESTCSPROJ
-
-          cat > UnityStubs.cs << 'STUBS'
-          // Minimal Unity type stubs so the project can compile for SonarQube analysis.
-          // These are NOT shipped — only used in CI for static analysis.
-          namespace UnityEngine
-          {
-              public class Object
-              {
-                  public static void DestroyImmediate(Object obj) { }
-              }
-              public class Component : Object { public GameObject gameObject => null; }
-              public class Behaviour : Component { }
-              public class MonoBehaviour : Behaviour { }
-              public class GameObject : Object
-              {
-                  public T AddComponent<T>() where T : Component => default;
-              }
-          }
-          namespace UnityEngine.SceneManagement
-          {
-              public static class SceneManager
-              {
-                  public static void LoadScene(string sceneName) { }
-              }
-          }
-          namespace NUnit.Framework
-          {
-              [System.AttributeUsage(System.AttributeTargets.Method)]
-              public class TestAttribute : System.Attribute { }
-              public static class Assert
-              {
-                  public static void AreEqual(object expected, object actual) { }
-              }
-          }
-          STUBS
-
-          # Create solution file referencing both projects
-          dotnet new sln -n SonarAnalysis --force
-          dotnet sln SonarAnalysis.sln add SonarAnalysis.csproj
-          dotnet sln SonarAnalysis.sln add SonarAnalysis.Tests.csproj
-
-      # BEGIN: Start SonarQube analysis (before build)
-      - name: SonarScanner Begin
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          dotnet sonarscanner begin \
-            /k:"thelagomorpha_neurobuddy-game" \
-            /o:"thelagomorpha" \
-            /d:sonar.token="${SONAR_TOKEN}" \
-            /d:sonar.host.url="https://sonarcloud.io" \
-            /d:sonar.cs.opencover.reportsPaths="**/TestCoverageResults_*.xml" \
-            /d:sonar.exclusions="**/*.meta,**/*.asset,**/*.prefab,**/*.unity,**/*.mat,**/*.shader,UnityStubs.cs,CodeCoverage/**,Library/**,Temp/**,Logs/**,UserSettings/**,bin/**,obj/**" \
-            /d:sonar.coverage.exclusions="UnityStubs.cs,Assets/Tests/**" \
-            /d:sonar.cpd.exclusions="Assets/Tests/**"
-
-      # Build the solution (required by dotnet-sonarscanner)
-      - name: Build Analysis Projects
-        run: dotnet build SonarAnalysis.sln
-
-
-      # Run Unity tests with coverage
       - uses: game-ci/unity-test-runner@v4
-        id: unity-test
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
@@ -160,24 +38,16 @@ jobs:
         with:
           projectPath: .
           githubToken: ${{ secrets.GITHUB_TOKEN }}
-          coverageOptions: 'generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;generateOpenCoverReport;assemblyFilters:+GameScripts'
 
-      # Fix coverage file permissions (generated as root inside Docker)
-      - name: Fix coverage permissions
-        if: always()
-        run: |
-          sudo chmod -R a+r ${{ steps.unity-test.outputs.coveragePath }} || true
+  sonarcloud:
+    name: SonarCloud Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      # Debug: show coverage files found
-      - name: Debug coverage
-        if: always()
-        run: |
-          echo "=== Coverage XML files ==="
-          find . -name 'TestCoverageResults_*.xml' -type f || true
-
-      # END: Finish SonarQube analysis and upload results
-      - name: SonarScanner End
-        if: always()
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarqube-scan-action@v5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: dotnet sonarscanner end /d:sonar.token="${SONAR_TOKEN}"
