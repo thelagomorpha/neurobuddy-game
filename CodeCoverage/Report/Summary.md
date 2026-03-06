@@ -1,26 +1,26 @@
 ﻿# Summary
 |||
 |:---|:---|
-| Generated on: | 3/3/2026 - 7:52:57 PM |
+| Generated on: | 3/6/2026 - 8:40:23 PM |
 | Parser: | MultiReportParser (2x OpenCoverParser) |
 | Assemblies: | 2 |
 | Classes: | 3 |
 | Files: | 3 |
-| Covered lines: | 38 |
-| Uncovered lines: | 6 |
-| Coverable lines: | 44 |
-| Total lines: | 124 |
-| Line coverage: | 86.3% (38 of 44) |
+| Covered lines: | 96 |
+| Uncovered lines: | 3 |
+| Coverable lines: | 99 |
+| Total lines: | 226 |
+| Line coverage: | 96.9% (96 of 99) |
 | Covered branches: | 0 |
 | Total branches: | 0 |
-| Covered methods: | 10 |
-| Total methods: | 12 |
-| Method coverage: | 83.3% (10 of 12) |
+| Covered methods: | 19 |
+| Total methods: | 20 |
+| Method coverage: | 95% (19 of 20) |
 
 |**Name**|**Covered**|**Uncovered**|**Coverable**|**Total**|**Line coverage**|**Covered**|**Total**|**Branch coverage**|**Covered**|**Total**|**Method coverage**|
 |:---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-|**EditModeTests**|**32**|**0**|**32**|**79**|**100%**|**0**|**0**|****|**8**|**8**|**100%**|
-|MenuNavigatorTest|32|0|32|79|100%|0|0||8|8|100%|
-|**GameScripts**|**6**|**6**|**12**|**45**|**50%**|**0**|**0**|****|**2**|**4**|**50%**|
-|MenuNavigator|6|3|9|32|66.6%|0|0||2|3|66.6%|
+|**EditModeTests**|**78**|**0**|**78**|**166**|**100%**|**0**|**0**|****|**13**|**13**|**100%**|
+|MenuNavigatorTest|78|0|78|166|100%|0|0||13|13|100%|
+|**GameScripts**|**18**|**3**|**21**|**60**|**85.7%**|**0**|**0**|****|**6**|**7**|**85.7%**|
+|MenuNavigator|18|0|18|47|100%|0|0||6|6|100%|
 |UnitySceneLoader|0|3|3|13|0%|0|0||0|1|0%|

@@ -32,16 +32,16 @@ public class MenuNavigator : MonoBehaviour
 
     public void GoToLevel1()
     {
-        // TODO: implement
+        _sceneLoader.LoadScene("Level1");
     }
 
     public void GoToLevel2()
     {
-        // TODO: implement
+        _sceneLoader.LoadScene("Level2");
     }
 
     public void GoToLevel3()
     {
-        // TODO: implement
+        _sceneLoader.LoadScene("Level3");
     }
 }
