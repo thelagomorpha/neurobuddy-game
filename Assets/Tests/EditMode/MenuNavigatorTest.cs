@@ -76,4 +76,49 @@ public class MenuNavigatorTest
         // Cleanup
         UnityEngine.Object.DestroyImmediate(navigator.gameObject);
     }
+
+    [Test]
+    public void GoToLevel1_ShouldLoadLevel1Scene()
+    {
+        var mockLoader = new MockSceneLoader();
+        var navigator = new UnityEngine.GameObject().AddComponent<MenuNavigator>();
+        navigator.SetSceneLoader(mockLoader);
+
+        navigator.GoToLevel1();
+
+        Assert.AreEqual("Level1", mockLoader.LastLoadedScene);
+        Assert.AreEqual(1, mockLoader.LoadCallCount);
+
+        UnityEngine.Object.DestroyImmediate(navigator.gameObject);
+    }
+
+    [Test]
+    public void GoToLevel2_ShouldLoadLevel2Scene()
+    {
+        var mockLoader = new MockSceneLoader();
+        var navigator = new UnityEngine.GameObject().AddComponent<MenuNavigator>();
+        navigator.SetSceneLoader(mockLoader);
+
+        navigator.GoToLevel2();
+
+        Assert.AreEqual("Level2", mockLoader.LastLoadedScene);
+        Assert.AreEqual(1, mockLoader.LoadCallCount);
+
+        UnityEngine.Object.DestroyImmediate(navigator.gameObject);
+    }
+
+    [Test]
+    public void GoToLevel3_ShouldLoadLevel3Scene()
+    {
+        var mockLoader = new MockSceneLoader();
+        var navigator = new UnityEngine.GameObject().AddComponent<MenuNavigator>();
+        navigator.SetSceneLoader(mockLoader);
+
+        navigator.GoToLevel3();
+
+        Assert.AreEqual("Level3", mockLoader.LastLoadedScene);
+        Assert.AreEqual(1, mockLoader.LoadCallCount);
+
+        UnityEngine.Object.DestroyImmediate(navigator.gameObject);
+    }
 }
