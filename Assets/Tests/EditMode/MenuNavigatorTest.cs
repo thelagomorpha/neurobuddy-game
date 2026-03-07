@@ -129,8 +129,10 @@ public class MenuNavigatorTest
         // Arrange — create navigator without calling SetSceneLoader
         var navigator = new UnityEngine.GameObject().AddComponent<MenuNavigator>();
 
-        // Manually invoke Awake (EditMode may not auto-call it)
-        navigator.SendMessage("Awake");
+        // Manually invoke Awake via reflection to avoid Unity's ShouldRunBehaviour() assertion
+        typeof(MenuNavigator)
+            .GetMethod("Awake", BindingFlags.NonPublic | BindingFlags.Instance)
+            .Invoke(navigator, null);
 
         // Assert — use reflection to verify private _sceneLoader field
         var field = typeof(MenuNavigator).GetField("_sceneLoader",
@@ -151,8 +153,10 @@ public class MenuNavigatorTest
         var navigator = new UnityEngine.GameObject().AddComponent<MenuNavigator>();
         navigator.SetSceneLoader(mockLoader);
 
-        // Act — call Awake again (should NOT overwrite the mock thanks to ??=)
-        navigator.SendMessage("Awake");
+        // Act — call Awake again via reflection (should NOT overwrite the mock thanks to ??=)
+        typeof(MenuNavigator)
+            .GetMethod("Awake", BindingFlags.NonPublic | BindingFlags.Instance)
+            .Invoke(navigator, null);
 
         // Assert — _sceneLoader should still be the mock
         var field = typeof(MenuNavigator).GetField("_sceneLoader",

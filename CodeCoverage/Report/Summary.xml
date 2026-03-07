@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CoverageReport scope="Summary">
   <Summary>
-    <Generatedon>3/6/2026 - 8:40:23 PM</Generatedon>
+    <Generatedon>3/7/2026 - 10:59:50 AM</Generatedon>
     <Parser>MultiReportParser (2x OpenCoverParser)</Parser>
     <Assemblies>2</Assemblies>
     <Classes>3</Classes>
@@ -9,7 +9,7 @@
     <Coveredlines>96</Coveredlines>
     <Uncoveredlines>3</Uncoveredlines>
     <Coverablelines>99</Coverablelines>
-    <Totallines>226</Totallines>
+    <Totallines>230</Totallines>
     <Linecoverage>96.9</Linecoverage>
     <Coveredbranches>0</Coveredbranches>
     <Totalbranches>0</Totalbranches>
@@ -18,8 +18,8 @@
     <Methodcoverage>95</Methodcoverage>
   </Summary>
   <Coverage>
-    <Assembly name="EditModeTests" classes="1" coverage="100" coveredlines="78" coverablelines="78" totallines="166" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="13" totalmethods="13" methodcoverage="100">
-      <Class name="MenuNavigatorTest" coverage="100" coveredlines="78" coverablelines="78" totallines="166" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="13" totalmethods="13" methodcoverage="100" />
+    <Assembly name="EditModeTests" classes="1" coverage="100" coveredlines="78" coverablelines="78" totallines="170" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="13" totalmethods="13" methodcoverage="100">
+      <Class name="MenuNavigatorTest" coverage="100" coveredlines="78" coverablelines="78" totallines="170" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="13" totalmethods="13" methodcoverage="100" />
     </Assembly>
     <Assembly name="GameScripts" classes="2" coverage="85.7" coveredlines="18" coverablelines="21" totallines="60" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="6" totalmethods="7" methodcoverage="85.7">
       <Class name="MenuNavigator" coverage="100" coveredlines="18" coverablelines="18" totallines="47" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="6" totalmethods="6" methodcoverage="100" />
