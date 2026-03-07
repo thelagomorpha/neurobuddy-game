@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CoverageReport scope="Summary">
   <Summary>
-    <Generatedon>3/7/2026 - 10:59:50 AM</Generatedon>
-    <Parser>MultiReportParser (2x OpenCoverParser)</Parser>
+    <Generatedon>3/7/2026 - 2:17:00 PM</Generatedon>
+    <Parser>MultiReportParser (4x OpenCoverParser)</Parser>
     <Assemblies>2</Assemblies>
-    <Classes>3</Classes>
-    <Files>3</Files>
-    <Coveredlines>96</Coveredlines>
-    <Uncoveredlines>3</Uncoveredlines>
-    <Coverablelines>99</Coverablelines>
-    <Totallines>230</Totallines>
-    <Linecoverage>96.9</Linecoverage>
+    <Classes>11</Classes>
+    <Files>11</Files>
+    <Coveredlines>584</Coveredlines>
+    <Uncoveredlines>37</Uncoveredlines>
+    <Coverablelines>621</Coverablelines>
+    <Totallines>1171</Totallines>
+    <Linecoverage>94</Linecoverage>
     <Coveredbranches>0</Coveredbranches>
     <Totalbranches>0</Totalbranches>
-    <Coveredmethods>19</Coveredmethods>
-    <Totalmethods>20</Totalmethods>
-    <Methodcoverage>95</Methodcoverage>
+    <Coveredmethods>116</Coveredmethods>
+    <Totalmethods>121</Totalmethods>
+    <Methodcoverage>95.8</Methodcoverage>
   </Summary>
   <Coverage>
-    <Assembly name="EditModeTests" classes="1" coverage="100" coveredlines="78" coverablelines="78" totallines="170" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="13" totalmethods="13" methodcoverage="100">
+    <Assembly name="EditModeTests" classes="5" coverage="93.2" coveredlines="385" coverablelines="413" totallines="736" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="68" totalmethods="68" methodcoverage="100">
+      <Class name="GoNoGoItemTest" coverage="67.8" coveredlines="59" coverablelines="87" totallines="107" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="12" totalmethods="12" methodcoverage="100" />
+      <Class name="GoNoGoManagerTest" coverage="100" coveredlines="86" coverablelines="86" totallines="156" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="12" totalmethods="12" methodcoverage="100" />
+      <Class name="GoNoGoResultTest" coverage="100" coveredlines="44" coverablelines="44" totallines="79" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="7" totalmethods="7" methodcoverage="100" />
       <Class name="MenuNavigatorTest" coverage="100" coveredlines="78" coverablelines="78" totallines="170" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="13" totalmethods="13" methodcoverage="100" />
+      <Class name="SessionCodeEntryTest" coverage="100" coveredlines="118" coverablelines="118" totallines="224" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="24" totalmethods="24" methodcoverage="100" />
     </Assembly>
-    <Assembly name="GameScripts" classes="2" coverage="85.7" coveredlines="18" coverablelines="21" totallines="60" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="6" totalmethods="7" methodcoverage="85.7">
+    <Assembly name="GameScripts" classes="6" coverage="95.6" coveredlines="199" coverablelines="208" totallines="435" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="48" totalmethods="53" methodcoverage="90.5">
+      <Class name="GoNoGoItem" coverage="91.3" coveredlines="42" coverablelines="46" totallines="87" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="7" totalmethods="10" methodcoverage="70" />
+      <Class name="GoNoGoManager" coverage="98" coveredlines="101" coverablelines="103" totallines="187" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="17" totalmethods="18" methodcoverage="94.4" />
+      <Class name="GoNoGoResult" coverage="100" coveredlines="16" coverablelines="16" totallines="40" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="14" totalmethods="14" methodcoverage="100" />
       <Class name="MenuNavigator" coverage="100" coveredlines="18" coverablelines="18" totallines="47" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="6" totalmethods="6" methodcoverage="100" />
-      <Class name="UnitySceneLoader" coverage="0" coveredlines="0" coverablelines="3" totallines="13" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="SessionCodeEntry" coverage="86.3" coveredlines="19" coverablelines="22" totallines="61" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="4" methodcoverage="75" />
+      <Class name="UnitySceneLoader" coverage="100" coveredlines="3" coverablelines="3" totallines="13" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="1" methodcoverage="100" />
     </Assembly>
   </Coverage>
 </CoverageReport>
