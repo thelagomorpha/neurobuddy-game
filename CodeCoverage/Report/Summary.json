@@ -1,27 +1,35 @@
 {
   "summary": {
-    "generatedon": "2026-03-07T03:59:50Z",
-    "parser": "MultiReportParser (2x OpenCoverParser)",
+    "generatedon": "2026-03-07T07:17:00Z",
+    "parser": "MultiReportParser (4x OpenCoverParser)",
     "assemblies": 2,
-    "classes": 3,
-    "files": 3,
-    "coveredlines": 96,
-    "uncoveredlines": 3,
-    "coverablelines": 99,
-    "totallines": 230,
-    "linecoverage": 96.9,
+    "classes": 11,
+    "files": 11,
+    "coveredlines": 584,
+    "uncoveredlines": 37,
+    "coverablelines": 621,
+    "totallines": 1171,
+    "linecoverage": 94,
     "coveredbranches": 0,
     "totalbranches": 0,
-    "coveredmethods": 19,
-    "totalmethods": 20,
-    "methodcoverage": 95
+    "coveredmethods": 116,
+    "totalmethods": 121,
+    "methodcoverage": 95.8
  },
   "coverage": {
     "assemblies": [
-      { "name": "EditModeTests", "classes": 1, "coverage": 100, "coveredlines": 78, "coverablelines": 78, "totallines": 170, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 13, "totalmethods": 13, "classesinassembly": [
-        { "name": "MenuNavigatorTest", "coverage": 100, "coveredlines": 78, "coverablelines": 78, "totallines": 170, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 13, "totalmethods": 13 } ] },
-      { "name": "GameScripts", "classes": 2, "coverage": 85.7, "coveredlines": 18, "coverablelines": 21, "totallines": 60, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 85.7, "coveredmethods": 6, "totalmethods": 7, "classesinassembly": [
+      { "name": "EditModeTests", "classes": 5, "coverage": 93.2, "coveredlines": 385, "coverablelines": 413, "totallines": 736, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 68, "totalmethods": 68, "classesinassembly": [
+        { "name": "GoNoGoItemTest", "coverage": 67.8, "coveredlines": 59, "coverablelines": 87, "totallines": 107, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 12, "totalmethods": 12 },
+        { "name": "GoNoGoManagerTest", "coverage": 100, "coveredlines": 86, "coverablelines": 86, "totallines": 156, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 12, "totalmethods": 12 },
+        { "name": "GoNoGoResultTest", "coverage": 100, "coveredlines": 44, "coverablelines": 44, "totallines": 79, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 7, "totalmethods": 7 },
+        { "name": "MenuNavigatorTest", "coverage": 100, "coveredlines": 78, "coverablelines": 78, "totallines": 170, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 13, "totalmethods": 13 },
+        { "name": "SessionCodeEntryTest", "coverage": 100, "coveredlines": 118, "coverablelines": 118, "totallines": 224, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 24, "totalmethods": 24 } ] },
+      { "name": "GameScripts", "classes": 6, "coverage": 95.6, "coveredlines": 199, "coverablelines": 208, "totallines": 435, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 90.5, "coveredmethods": 48, "totalmethods": 53, "classesinassembly": [
+        { "name": "GoNoGoItem", "coverage": 91.3, "coveredlines": 42, "coverablelines": 46, "totallines": 87, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 70, "coveredmethods": 7, "totalmethods": 10 },
+        { "name": "GoNoGoManager", "coverage": 98, "coveredlines": 101, "coverablelines": 103, "totallines": 187, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 94.4, "coveredmethods": 17, "totalmethods": 18 },
+        { "name": "GoNoGoResult", "coverage": 100, "coveredlines": 16, "coverablelines": 16, "totallines": 40, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 14, "totalmethods": 14 },
         { "name": "MenuNavigator", "coverage": 100, "coveredlines": 18, "coverablelines": 18, "totallines": 47, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 6, "totalmethods": 6 },
-        { "name": "UnitySceneLoader", "coverage": 0, "coveredlines": 0, "coverablelines": 3, "totallines": 13, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 1 } ] } ]
+        { "name": "SessionCodeEntry", "coverage": 86.3, "coveredlines": 19, "coverablelines": 22, "totallines": 61, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 75, "coveredmethods": 3, "totalmethods": 4 },
+        { "name": "UnitySceneLoader", "coverage": 100, "coveredlines": 3, "coverablelines": 3, "totallines": 13, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 1, "totalmethods": 1 } ] } ]
   }
 }
