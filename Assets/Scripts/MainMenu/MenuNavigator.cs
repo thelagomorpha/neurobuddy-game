@@ -29,4 +29,19 @@ public class MenuNavigator : MonoBehaviour
     {
         _sceneLoader.LoadScene("Lobby");
     }
+
+    public void GoToLevel1()
+    {
+        _sceneLoader.LoadScene("Level1");
+    }
+
+    public void GoToLevel2()
+    {
+        _sceneLoader.LoadScene("Level2");
+    }
+
+    public void GoToLevel3()
+    {
+        _sceneLoader.LoadScene("Level3");
+    }
 }

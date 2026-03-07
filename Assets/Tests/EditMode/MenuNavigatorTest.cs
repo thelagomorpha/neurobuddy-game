@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Reflection;
 
 /// <summary>
 /// TDD Test for MenuNavigator — tests that GoToLobby() loads the "Lobby" scene.
@@ -74,6 +75,96 @@ public class MenuNavigatorTest
         Assert.AreEqual(2, mockLoader.LoadCallCount);
 
         // Cleanup
+        UnityEngine.Object.DestroyImmediate(navigator.gameObject);
+    }
+
+    [Test]
+    public void GoToLevel1_ShouldLoadLevel1Scene()
+    {
+        var mockLoader = new MockSceneLoader();
+        var navigator = new UnityEngine.GameObject().AddComponent<MenuNavigator>();
+        navigator.SetSceneLoader(mockLoader);
+
+        navigator.GoToLevel1();
+
+        Assert.AreEqual("Level1", mockLoader.LastLoadedScene);
+        Assert.AreEqual(1, mockLoader.LoadCallCount);
+
+        UnityEngine.Object.DestroyImmediate(navigator.gameObject);
+    }
+
+    [Test]
+    public void GoToLevel2_ShouldLoadLevel2Scene()
+    {
+        var mockLoader = new MockSceneLoader();
+        var navigator = new UnityEngine.GameObject().AddComponent<MenuNavigator>();
+        navigator.SetSceneLoader(mockLoader);
+
+        navigator.GoToLevel2();
+
+        Assert.AreEqual("Level2", mockLoader.LastLoadedScene);
+        Assert.AreEqual(1, mockLoader.LoadCallCount);
+
+        UnityEngine.Object.DestroyImmediate(navigator.gameObject);
+    }
+
+    [Test]
+    public void GoToLevel3_ShouldLoadLevel3Scene()
+    {
+        var mockLoader = new MockSceneLoader();
+        var navigator = new UnityEngine.GameObject().AddComponent<MenuNavigator>();
+        navigator.SetSceneLoader(mockLoader);
+
+        navigator.GoToLevel3();
+
+        Assert.AreEqual("Level3", mockLoader.LastLoadedScene);
+        Assert.AreEqual(1, mockLoader.LoadCallCount);
+
+        UnityEngine.Object.DestroyImmediate(navigator.gameObject);
+    }
+
+    [Test]
+    public void Awake_ShouldInitializeDefaultSceneLoader_WhenNoneInjected()
+    {
+        // Arrange — create navigator without calling SetSceneLoader
+        var navigator = new UnityEngine.GameObject().AddComponent<MenuNavigator>();
+
+        // Manually invoke Awake via reflection to avoid Unity's ShouldRunBehaviour() assertion
+        typeof(MenuNavigator)
+            .GetMethod("Awake", BindingFlags.NonPublic | BindingFlags.Instance)
+            .Invoke(navigator, null);
+
+        // Assert — use reflection to verify private _sceneLoader field
+        var field = typeof(MenuNavigator).GetField("_sceneLoader",
+            BindingFlags.NonPublic | BindingFlags.Instance);
+        var loader = field.GetValue(navigator);
+
+        Assert.IsNotNull(loader);
+        Assert.IsInstanceOf<UnitySceneLoader>(loader);
+
+        UnityEngine.Object.DestroyImmediate(navigator.gameObject);
+    }
+
+    [Test]
+    public void Awake_ShouldNotOverrideInjectedSceneLoader()
+    {
+        // Arrange — inject mock BEFORE Awake
+        var mockLoader = new MockSceneLoader();
+        var navigator = new UnityEngine.GameObject().AddComponent<MenuNavigator>();
+        navigator.SetSceneLoader(mockLoader);
+
+        // Act — call Awake again via reflection (should NOT overwrite the mock thanks to ??=)
+        typeof(MenuNavigator)
+            .GetMethod("Awake", BindingFlags.NonPublic | BindingFlags.Instance)
+            .Invoke(navigator, null);
+
+        // Assert — _sceneLoader should still be the mock
+        var field = typeof(MenuNavigator).GetField("_sceneLoader",
+            BindingFlags.NonPublic | BindingFlags.Instance);
+        var loader = field.GetValue(navigator);
+
+        Assert.AreSame(mockLoader, loader);
+
         UnityEngine.Object.DestroyImmediate(navigator.gameObject);
     }
 }
