@@ -339,6 +339,13 @@ public class LoginControllerTest
     {
         var (controller, _, passwordField, _, _, _, _, go, canvasGo) = CreateController();
 
+        // In the real game, Unity sets serialized fields before Awake fires.
+        // In Edit Mode tests, AddComponent triggers Awake before reflection injection,
+        // so we re-invoke Awake after injection; ??= operators preserve the existing mocks.
+        typeof(LoginController)
+            .GetMethod("Awake", BindingFlags.NonPublic | BindingFlags.Instance)
+            .Invoke(controller, null);
+
         Assert.AreEqual(InputField.InputType.Password, passwordField.inputType);
 
         Object.DestroyImmediate(go);
