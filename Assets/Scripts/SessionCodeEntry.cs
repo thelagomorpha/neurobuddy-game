@@ -28,6 +28,17 @@ public class SessionCodeEntry : MonoBehaviour
         _sceneLoader ??= new UnitySceneLoader();
     }
 
+    private void Start()
+    {
+        string pending = PlayerPrefs.GetString(DeepLinkHandler.PendingSessionKey, string.Empty);
+        if (!string.IsNullOrEmpty(pending) && inputKode != null)
+        {
+            inputKode.text = pending;
+            PlayerPrefs.DeleteKey(DeepLinkHandler.PendingSessionKey);
+            PlayerPrefs.Save();
+        }
+    }
+
     /// <summary>
     /// Returns true if raw is exactly 6 characters of A-Z or 0-9 (case-insensitive).
     /// </summary>
